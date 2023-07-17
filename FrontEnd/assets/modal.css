@@ -1,0 +1,98 @@
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    
+    background: #0000004D;
+}
+  
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 630px;
+    height: 731px;
+}
+
+.images{
+    border-bottom: 1px solid #B3B3B3;
+    width: 420px;
+    height: 70%;
+    display: flex;
+    margin: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 9px;
+    align-content: flex-start;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.img-modal{
+    width: 97px;
+    height: 122px;
+}
+
+.add-delete{
+    width: 237px;
+    height: 135px;
+    margin: auto;
+    text-align: center;
+}
+
+.add-delete #add{
+    margin-top: 38px;
+    width: 237px;
+    height: 36px;
+    background-color: #1D6154;
+    color: white;
+    border-radius: 60px;
+    font-family: 'Syne';
+    border: none;
+    cursor: pointer;
+}
+
+.add-delete #delete{
+    margin-top: 23px;
+    border: none;
+    color: red;
+    background-color: white;
+    cursor: pointer;
+    font-family: 'Syne';
+}
+
+.icon2{
+    position: absolute;
+    margin-left: -20px;
+    color: white;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.icon1{
+    cursor: pointer;
+    position: absolute;
+    margin-left: -42px;
+    color: white;
+    margin-top: 15px;
+}
