@@ -19,9 +19,6 @@ window.onload = function(){
 
         e.preventDefault();
 
-        console.log(e.target[0].value);
-        console.log(e.target[1].value);
-
         var email = e.target[0].value;
         var password = e.target[1].value;
         

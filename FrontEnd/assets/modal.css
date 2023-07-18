@@ -1,18 +1,17 @@
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
     background: #0000004D;
+    
 }
   
-/* Modal Content */
 .modal-content {
     background-color: #fefefe;
     margin: auto;
@@ -34,7 +33,6 @@
     align-content: flex-start;
 }
 
-/* The Close Button */
 .close {
     color: #aaaaaa;
     float: right;
@@ -95,4 +93,107 @@
     margin-left: -42px;
     color: white;
     margin-top: 15px;
+}
+
+.add-project{
+    display: none;
+}
+
+.add-picture{
+    width: 420px;
+    height: 169px;
+    background-color: #E8F1F6;
+    margin: auto;
+}
+
+.content-pic{
+    width: 173px;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.content-pic i{
+    margin-top: 44px;
+    font-size: 58px;
+    color: #B9C5CC;
+    text-align: center;
+}
+
+.content-pic #add-pic{
+    width: 173px;
+    height: 36px;
+    background-color: #CAD6DC;
+    color: #2F6685;
+    border-radius: 60px;
+    font-family: 'Syne';
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+    line-height: 35px;
+    text-align: center;
+}
+
+.content-pic input{
+    visibility: hidden;
+}
+
+.content-pic p{
+   text-align: center;
+   font-size: 12px;
+}
+
+
+.form-add{
+    margin-top: 37px;
+}
+
+.form-add label{
+    margin-bottom: 6px;
+    display: inline-block;
+}
+
+.form-add input{
+    width: 420px;
+    height: 51px;
+    border: none;
+    box-shadow: 0px 4px 14px 0px #00000017;
+}
+
+.form-add select{
+    width: 420px;
+    height: 51px;
+    border: none;
+    box-shadow: 0px 4px 14px 0px #00000017;
+    background-color: white;
+}
+
+.add-project form{
+    margin: auto;
+    width: 420px;
+}
+
+.content-add{
+    width: 420px;
+    padding-bottom: 47px;
+    margin: auto;
+}
+
+#valid{
+    width: 237px;
+    height: 36px;
+    background-color: #A7A7A7;
+    color: white;
+    border-radius: 60px;
+    font-family: 'Syne';
+    border: none;
+    cursor: pointer;
+    margin-top: 25px;
+}
+
+.post-project{
+    border-top: 1px solid #B3B3B3;
+    text-align: center;
+    margin-top: 47px;
 }

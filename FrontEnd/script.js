@@ -14,7 +14,6 @@ window.onload = function(){
 
         loginButton.textContent = "logout";
 
-        var filterCategories = document.getElementsByClassName("gallery")[0];
         var title = document.getElementById("title");
         var pp = document.getElementsByTagName("figure")[0];
 
@@ -44,12 +43,20 @@ window.onload = function(){
         categories.map((values) => {
             
             var categoryValues = document.createElement('div');
-            categoryValues.innerText = values.name;
-            categoryValues.id = values.id;
-            categoryValues.className = "category";
-            categoryValues.setAttribute("onclick","sortById(event)");
-            categoryValues.onclick = function() {sortById(event);};
+                categoryValues.innerText = values.name;
+                categoryValues.id = values.id;
+                categoryValues.className = "category";
+                categoryValues.setAttribute("onclick","sortById(event)");
+                categoryValues.onclick = function() {sortById(event);};
+
             domCategories.appendChild(categoryValues);
+
+            var selectValues = document.getElementsByTagName("select")[0];
+            var optionValue = document.createElement("option");
+                optionValue.innerText = values.name;
+                optionValue.value = values.id;
+
+            selectValues.appendChild(optionValue);            
         });
     });
     
@@ -153,12 +160,21 @@ window.onload = function(){
     /////////////////////////
             
     var modal = document.getElementById("modal");
+    var modalcontent = document.getElementsByClassName("list-project")[0];
+    var addProject = document.getElementsByClassName("add-project")[0];
+    var addPicture = document.getElementById("add");
     var btn = document.getElementById("buttonEdit");
     var span = document.getElementsByClassName("close")[0];
 
     btn.onclick = function() {
         modal.style.display = "block";
+        modalcontent.style.display = "block";
     }
+    
+    addPicture.onclick = function(){
+        addProject.style.display = "block";
+        modalcontent.style.display = "none";
+    }   
 
     span.onclick = function() {
         modal.style.display = "none";
@@ -167,6 +183,7 @@ window.onload = function(){
     window.onclick = function(event) {
         if (event.target == modal) {
             modal.style.display = "none";
+            addProject.style.display = "none";
         }
     }
 
@@ -227,5 +244,26 @@ window.onload = function(){
             }
         }
 
-    });     
+    });
+
+    var projectForm = document.getElementsByClassName("project-form")[0];
+    var filesForm = document.getElementById("files");
+
+    projectForm.onsubmit = function(e){
+
+        e.preventDefault();
+
+        var imageUrl = e.target[0].files[0].name;
+        var title = e.target[1].value;
+        var categoryId = e.target[2].value;
+
+        fetch('http://localhost:5678/api/works', {
+            method: 'POST',
+            headers: {
+                'Authorization': 'Bearer '+ token
+            },
+            body: JSON.stringify({ title, imageUrl, categoryId})
+        })
+        .then(response => response.json())
+    }
 }

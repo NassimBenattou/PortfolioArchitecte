@@ -48,14 +48,46 @@
 	<section id="portfolio">
 		<div id="modal" class="modal">
 			<div class="modal-content">
-				<span class="close">&times;</span>
-				<h2>Galerie photo</h2>
-				<div class="images">
-
+				<div class="list-project">
+					<span class="close">&times;</span>
+					<h2>Galerie photo</h2>
+					<div class="images">
+	
+					</div>
+					<div class="add-delete">
+						<button id="add">Ajouter une photo</button>
+						<button id="delete">Supprimer la galerie</button>
+					</div>
 				</div>
-				<div class="add-delete">
-					<button id="add">Ajouter une photo</button>
-					<button id="delete">Supprimer la galerie</button>
+				<div class="add-project">
+					<span class="fa-solid fa-arrow-left fa-xl"></span>
+					<span class="close">&times;</span>
+					<div class="content-add">
+						<h2>Ajout photo</h2>
+						<form class="project-form" method="post">
+							<div class="add-picture">
+								<div class="content-pic">
+									<i class="fa-regular fa-image fa-2xl"></i><br>
+									<label for="files" id="add-pic">+ Ajouter photo</label>
+									<input type="file" id="files">
+									<p>jpg, png : 4mo max</p>
+								</div>
+							</div>
+							<div class="form-add">
+								<label>Titre</label><br>
+								<input type="text" required/>
+							</div>
+							<div class="form-add">
+								<label>Catégorie</label><br>
+								<select name="category" id="category-select">
+									
+								</select>
+							</div>
+							<div class="post-project">
+								<button type="submit" id="valid">Valider</button>
+							</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
