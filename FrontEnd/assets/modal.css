@@ -188,7 +188,6 @@
     border-radius: 60px;
     font-family: 'Syne';
     border: none;
-    cursor: pointer;
     margin-top: 25px;
 }
 
@@ -196,4 +195,14 @@
     border-top: 1px solid #B3B3B3;
     text-align: center;
     margin-top: 47px;
+}
+
+.img-preview{
+    width: 140px;
+    height: 169px;
+    margin: auto;
+}
+
+.back{
+    cursor: pointer;
 }

@@ -164,23 +164,40 @@ window.onload = function(){
     var addProject = document.getElementsByClassName("add-project")[0];
     var addPicture = document.getElementById("add");
     var btn = document.getElementById("buttonEdit");
-    var span = document.getElementsByClassName("close")[0];
+    var span = document.getElementsByClassName("close");
+    var back = document.getElementsByClassName("back")[0];
+
+    console.log(back)
 
     btn.onclick = function() {
+
         modal.style.display = "block";
         modalcontent.style.display = "block";
     }
     
     addPicture.onclick = function(){
+
         addProject.style.display = "block";
         modalcontent.style.display = "none";
     }   
 
-    span.onclick = function() {
-        modal.style.display = "none";
+    for(i = 0; i < span.length; i++){
+
+        span[i].onclick = function() {
+    
+            modal.style.display = "none";
+        }
     }
+
+    back.onclick = function(){
+
+        addProject.style.display = "none";
+        modalcontent.style.display = "block";
+    }
+
     
     window.onclick = function(event) {
+
         if (event.target == modal) {
             modal.style.display = "none";
             addProject.style.display = "none";
@@ -246,23 +263,51 @@ window.onload = function(){
 
     });
 
-    var projectForm = document.getElementsByClassName("project-form")[0];
-    var filesForm = document.getElementById("files");
+    const projectForm = document.getElementsByClassName("project-form")[0];
+    const hideDivUpload = document.getElementsByClassName("content-pic")[0];
+    const renderImg = document.createElement("img");
+    var file = document.getElementById("files");
+    var validForm = document.getElementById("valid");
+
+    validForm.style.cursor = "not-allowed";
+    
+    file.addEventListener('change', previewFile);
+    
+    function previewFile(){
+        
+        if(this.files[0].name){
+    
+            for(i = 0; i < hideDivUpload.children.length; i++){
+
+                hideDivUpload.children[i].style.display = "none";
+            }
+            
+            renderImg.src = "assets/images/"+this.files[0].name;
+            renderImg.className = "img-preview";
+            hideDivUpload.appendChild(renderImg);
+            validForm.style.backgroundColor = "#1D6154";
+            validForm.style.cursor = "pointer";
+        }
+    }
 
     projectForm.onsubmit = function(e){
 
         e.preventDefault();
-
-        var imageUrl = e.target[0].files[0].name;
+        
+        var imageUrl = e.target[0].files[0];
         var title = e.target[1].value;
         var categoryId = e.target[2].value;
+
+        formData.append('title', title);
+        formData.append('image', imageUrl);
+        formData.append('category', categoryId);
 
         fetch('http://localhost:5678/api/works', {
             method: 'POST',
             headers: {
                 'Authorization': 'Bearer '+ token
             },
-            body: JSON.stringify({ title, imageUrl, categoryId})
+            body: formData
         })
         .then(response => response.json())
     }
