@@ -21,8 +21,6 @@ window.onload = function(){
 
         var email = e.target[0].value;
         var password = e.target[1].value;
-        
-        console.log(JSON.stringify({ email, password}))
 
         fetch('http://localhost:5678/api/users/login', {
             method: 'POST',
@@ -37,7 +35,7 @@ window.onload = function(){
             
             sessionStorage.setItem('token', access.token);
 
-            if(sessionStorage.getItem('token')){
+            if(sessionStorage.getItem('token') == access.token){
 
                 var loginButton = document.getElementById('login');
                 loginButton.textContent = "logout";
@@ -49,6 +47,11 @@ window.onload = function(){
 
                 window.location.href = "index.html";
             }
+            else{
+                alert("Mail ou mot de passe incorrect !");
+                sessionStorage.clear();
+            }
         })
+        .catch((error) => console.log(error) );
     }
 }

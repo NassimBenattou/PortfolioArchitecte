@@ -60,6 +60,7 @@ header {
 	margin: 50px 0;
 }
 .publish{
+	display: none;
 	position: absolute;
 	top: 0;
 	left: 0;
